@@ -1,17 +1,19 @@
+import 'package:calculator/components/root.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'constant.dart';
 import 'components/my_button.dart';
+import 'package:calculator/evaluator.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class InFix extends StatefulWidget {
+  const InFix({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<InFix> createState() => _InFixState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _InFixState extends State<InFix> {
   var userInput = '';
   var answer = '';
   @override
@@ -84,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 userInput += '/';
                                 setState(() {});
                               },
-                              buttonClr: orrangeColor),
+                              buttonClr: greenColor),
                         ],
                       ),
                       Row(
@@ -116,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 userInput += 'x';
                                 setState(() {});
                               },
-                              buttonClr: orrangeColor),
+                              buttonClr: greenColor),
                         ],
                       ),
                       Row(
@@ -148,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 userInput += '-';
                                 setState(() {});
                               },
-                              buttonClr: orrangeColor),
+                              buttonClr: greenColor),
                         ],
                       ),
                       Row(
@@ -180,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 userInput += '+';
                                 setState(() {});
                               },
-                              buttonClr: orrangeColor),
+                              buttonClr: greenColor),
                         ],
                       ),
                       Row(
@@ -210,10 +212,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           Mybutton(
                               title: '=',
                               onpress: () {
+                                Evaluate obj = new Evaluate();
+
+                                // Exception `handling for '2+5-' like input
+                                int i = userInput.length - 1;
+                                // if (userInput[i]) 
                                 equalpress();
                                 setState(() {});
+                                // print(ans);
                               },
-                              buttonClr: orrangeColor),
+                              buttonClr: greenColor),
                         ],
                       ),
                     ],

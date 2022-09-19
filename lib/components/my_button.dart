@@ -19,6 +19,7 @@ class Mybutton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: InkWell(
           onTap: onpress,
+          highlightColor: Colors.black,
           child: Container(
             height: 80,
             decoration: BoxDecoration(
@@ -28,7 +29,7 @@ class Mybutton extends StatelessWidget {
             child: Center(
                 child: Text(
               title,
-              style: TextStyle(fontSize: 20, color: whiteColor),
+              style: TextStyle(fontSize: 20, color: Colors.black),
             )),
           ),
         ),

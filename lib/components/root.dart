@@ -1,4 +1,5 @@
 import 'package:calculator/components/navbutton.dart';
+import 'package:calculator/constant.dart';
 import 'package:flutter/material.dart';
 
 class RootApp extends StatelessWidget {
@@ -7,20 +8,48 @@ class RootApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child: Scaffold(
+      child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
-        
-          title: Center(child: const Text("Calcutator", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
-          backgroundColor: Colors.amber,
+          toolbarHeight: 80,
+          title: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: const Text(
+                "Expression Evaluator",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.normal),
+              ),
+            ),
+          ),
+          backgroundColor: Colors.indigoAccent,
         ),
         body: Center(
-          child: Container(
-            child: Navbutton(
-            ),
-  
-      ),
+          child: AnimatedContainer(
+            duration: Duration(seconds: 4),
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Navbutton(
+                title: 'Infix Evaluator',
+                onpress: () {
+                  Navigator.pushNamed(context, "/In");
+                },
+              ),
+              Navbutton(
+                title: 'Pstfix Evaluator',
+                onpress: () {
+                  Navigator.pushNamed(context, "/Post");
+                },
+              ),
+              Navbutton(
+                title: 'Prefix Evaluator',
+                onpress: () {
+                  Navigator.pushNamed(context, "/Pre");
+                },
+              )
+            ]),
+          ),
         ),
-    ),
+      ),
     );
   }
 }

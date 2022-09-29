@@ -19,6 +19,14 @@ class _PostFixState extends State<PostFix> {
   Widget build(BuildContext context) {
     print('rebuild');
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pushNamed(context, "/Root");
+            }),
+        backgroundColor: Colors.black,
+      ),
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
@@ -76,7 +84,7 @@ class _PostFixState extends State<PostFix> {
                               } else {
                                 answer = "Invalid Expression";
                               }
-                               setState(() {});
+                              setState(() {});
                               // print(ans);
                             },
                           ),
@@ -93,7 +101,7 @@ class _PostFixState extends State<PostFix> {
                                 userInput += '/';
                                 setState(() {});
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                       Row(
@@ -125,7 +133,7 @@ class _PostFixState extends State<PostFix> {
                                 userInput += 'x';
                                 setState(() {});
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                       Row(
@@ -157,7 +165,7 @@ class _PostFixState extends State<PostFix> {
                                 userInput += '-';
                                 setState(() {});
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                       Row(
@@ -189,7 +197,7 @@ class _PostFixState extends State<PostFix> {
                                 userInput += '+';
                                 setState(() {});
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                       Row(
@@ -198,6 +206,14 @@ class _PostFixState extends State<PostFix> {
                             title: '0',
                             onpress: () {
                               userInput += '0';
+                              setState(() {});
+                            },
+                          ),
+                          DelButton(
+                            title: 'DEL',
+                            onpress: () {
+                              userInput =
+                                  userInput.substring(0, userInput.length - 1);
                               setState(() {});
                             },
                           ),

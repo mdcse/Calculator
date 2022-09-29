@@ -46,9 +46,13 @@ class Evaluate {
     }
     // Exception handling for the empty expression
     if (stack.isEmpty) {
-          flag = false;
-          return -1; // Unsuccessful Termination
-        }
+      flag = false;
+      return -1; // Unsuccessful Termination
+    }
+    if (stack.size() > 1) {
+      flag = false;
+      return -1; // Unsuccessful Termination
+    }
     return stack.top();
   }
 
@@ -63,7 +67,6 @@ class Evaluate {
           s[i] == '*' ||
           s[i] == '/' ||
           s[i] == '^') {
-
         // Exception Handling for "5/" like input
         if (stack.size() < 2) {
           flag = false;
@@ -92,9 +95,13 @@ class Evaluate {
     }
     // Exception handling for the empty expression
     if (stack.isEmpty) {
-          flag = false;
-          return -1; // Unsuccessful Termination
-        }
+      flag = false;
+      return -1; // Unsuccessful Termination
+    }
+    if (stack.size() > 1) {
+      flag = false;
+      return -1; // Unsuccessful Termination
+    }
     return stack.top();
   }
 }

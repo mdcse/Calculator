@@ -20,6 +20,14 @@ class _InFixState extends State<InFix> {
   Widget build(BuildContext context) {
     print('rebuild');
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pushNamed(context, "/Root");
+            }),
+        backgroundColor: Colors.black,
+      ),
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
@@ -86,7 +94,7 @@ class _InFixState extends State<InFix> {
                                 userInput += '/';
                                 setState(() {});
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                       Row(
@@ -118,7 +126,7 @@ class _InFixState extends State<InFix> {
                                 userInput += 'x';
                                 setState(() {});
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                       Row(
@@ -150,7 +158,7 @@ class _InFixState extends State<InFix> {
                                 userInput += '-';
                                 setState(() {});
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                       Row(
@@ -182,7 +190,7 @@ class _InFixState extends State<InFix> {
                                 userInput += '+';
                                 setState(() {});
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                       Row(
@@ -216,12 +224,12 @@ class _InFixState extends State<InFix> {
 
                                 // Exception `handling for '2+5-' like input
                                 int i = userInput.length - 1;
-                                // if (userInput[i]) 
+                                // if (userInput[i])
                                 equalpress();
                                 setState(() {});
                                 // print(ans);
                               },
-                              buttonClr: greenColor),
+                              buttonClr: indigiAccent),
                         ],
                       ),
                     ],

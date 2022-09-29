@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         "/In" : (context) => InFix(),
         "/Post" : (context) => PostFix(),
         "/Pre" : (context) => PreFix(),
+        "/Root" : (context) => RootApp(),
       },
     );
   }
